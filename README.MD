@@ -7,6 +7,9 @@ Problem statement:
 
 This repository aims to bridge HTTP domain model and classical Object oriented interfaces.
 
+![Diagram](domainsTransformation.png)
+
+
 I need to build wizard which allows doing it!!!
 
 What is the right design process:
@@ -14,6 +17,7 @@ What is the right design process:
   * Define Domain objects (classes)
   * Define operations 
   * Map classes to shapes
+  
   
   
  ---
