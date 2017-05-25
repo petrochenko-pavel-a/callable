@@ -8,8 +8,8 @@
     "noValidationBuild": "rimraf dist && tsc",
     "build": "npm run noValidationBuild"
   },
-  "main": "./dist/raml.js",
-  "typings": "./dist/raml.d.ts",
+  "main": "./dist/callable.js",
+  "typings": "./dist/callable.d.ts",
   "devDependencies": {
     "typescript": "^2.0.0",
     "dev-env-installer": "0.0.5",

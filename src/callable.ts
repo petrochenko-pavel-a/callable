@@ -8,10 +8,27 @@ export interface Scope extends IAnnotated{
     description(): string
 }
 
+export interface ShapeConstructionRule{
+    kind(): string
+}
+export interface ReferenceBuildRule extends ShapeConstructionRule{
+
+    proertyPath(): string
+
+}
+
+export interface ObjectTransformationBuildRule extends ShapeConstructionRule{
+
+    propertiesToIgnore(): string[]
+
+    propertiesToTransform(): { [name:string]: ShapeConstructionRule}
+}
+
 export interface Shape extends IAnnotated{
     representationOf():Class
     type(): Type
     scopes(): Scope[]
+    rule(): ShapeConstructionRule
 }
 
 export interface Parameter extends IAnnotated{
@@ -38,6 +55,8 @@ export interface Operation extends IAnnotated{
     ownerModule(): Module
 
     scopes(): Scope[]
+
+    requiredScopes(): Scope[]
 }
 
 export interface Class extends IAnnotated{
@@ -47,6 +66,27 @@ export interface Class extends IAnnotated{
     methods(): Operation[];
 
     ownerModule(): Module
+
+    superClasses(): Class[]
+
+    properties(): Property[]
+
+    declaredProperties(): Property[]
+}
+
+export interface Property{
+
+    name(): string
+    required(): boolean
+    shape(): Shape
+
+    visibleIn(): Scope[]
+
+    requiredIn(): Scope[]
+
+    declaresScopes():Scope[]
+
+    closesScopes(): Scope[]
 }
 
 export interface Module extends IAnnotated{
@@ -56,5 +96,7 @@ export interface Module extends IAnnotated{
     shapes(): Shape[]
 
     methods(): Operation[]
+
+    scopes(): Scope[]
 
 }
