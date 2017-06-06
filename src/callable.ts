@@ -13,7 +13,7 @@ export interface ShapeConstructionRule{
 }
 export interface ReferenceBuildRule extends ShapeConstructionRule{
 
-    proertyPath(): string
+    propertyPath(): string
 
 }
 
@@ -77,7 +77,9 @@ export interface Class extends IAnnotated{
 export interface Property{
 
     name(): string
+
     required(): boolean
+
     shape(): Shape
 
     visibleIn(): Scope[]
